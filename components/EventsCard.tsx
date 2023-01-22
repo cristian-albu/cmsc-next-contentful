@@ -4,18 +4,11 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 export default function EventsCard({ title, image, date, description, slug, location }: EventCard) {
-  const [initialRenderComplete, setInitialRender] = useState(false);
-  const [dateFormat, setDateFormat] = useState("");
+  const [newDate, setNewDate] = useState(date);
 
   useEffect(() => {
-    setInitialRender(true);
+    setNewDate(formatDate(newDate));
   }, []);
-
-  if (!initialRenderComplete) {
-    return null;
-  } else {
-    setDateFormat(formatDate(date));
-  }
 
   return (
     <Link href={`/evenimente/${slug}`} className="flex w-[100%] items-start mb-10 transition-transform hover:-translate-y-2 lg:w-[48%] ">
@@ -26,7 +19,7 @@ export default function EventsCard({ title, image, date, description, slug, loca
 
       <div className="flex flex-col pl-3 w-[60%] justify-start">
         <h3 className="text-2xl mb-2">{title}</h3>
-        <p className="text-pink font-bold mb-2">{dateFormat}</p>
+        <p className="text-pink font-bold mb-2">{newDate}</p>
         <p>{description}</p>
       </div>
     </Link>
