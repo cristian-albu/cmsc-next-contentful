@@ -72,7 +72,7 @@ export default function Contact() {
     }
     handleName();
     return handleName();
-  }, [formData]);
+  }, [formData.name, formErrors]);
 
   useEffect(() => {
     function handleEmail() {
@@ -91,7 +91,7 @@ export default function Contact() {
     }
     handleEmail();
     return handleEmail();
-  }, [formData]);
+  }, [formData.email, formErrors]);
 
   useEffect(() => {
     function handleMessage() {
@@ -108,7 +108,7 @@ export default function Contact() {
     }
     handleMessage();
     return handleMessage();
-  }, [formData]);
+  }, [formData.message, formErrors]);
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -236,6 +236,7 @@ export default function Contact() {
                 <a
                   href="https://www.google.com/maps/place/Strada+Constantin+Langa+103,+Miroslava+707305/@47.1414928,27.5001655,15z/data=!4m6!3m5!1s0x40cafb1aaf20670b:0x41444cef81ee82e!8m2!3d47.1425788!4d27.5156102!15sCmRDb25zdGFudGluIExhbmdhIFN0cmVldCBuby4gMTAzWCwgTWlyb3NsYXZhIHZpbGxhZ2UsIE1pcm9zbGF2YSBjb21tdW5lLCBJYXNpIGNvdW50eSwgUm9tYW5pYSwgNzA3MzA1kgEQZ2VvY29kZWRfYWRkcmVzcw?shorturl=1"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Constantin Langa Street no. 103X, Miroslava village, Miroslava commune, Iasi county, Romania, 707305
                 </a>
