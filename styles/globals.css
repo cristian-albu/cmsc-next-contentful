@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#resourceHover > div {
+  transition: transform 0.2s;
+  transform-origin: bottom left;
+  transform: scale(0);
+}
+
+#resourceHover:hover > div {
+  transform: scale(1);
+}
+
+table {
+  width: 100%;
+}
+
+tbody,
+th,
+tr,
+td {
+  border: 1px solid rgb(116, 116, 116);
+}
+
+td,
+th {
+  padding: 0rem 1rem;
+}
