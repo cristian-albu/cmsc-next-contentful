@@ -13,7 +13,8 @@ export default function formatDate(element: any) {
       nov: "Noiembrie",
       dec: "Decembrie",
     };
-    const date = new Date(element).toString().split(" ").slice(1, 4);
-    const translatedDate = `${months[date[0].toLocaleLowerCase()]} ${date[1]} ${date[2]}`;
-    return translatedDate;
+    // const date = new Date(element).toString().split(" ").slice(1, 4);
+    // const translatedDate = `${months[date[0].toLocaleLowerCase()]} ${date[1]} ${date[2]}`;
+
+    return element;
   }
