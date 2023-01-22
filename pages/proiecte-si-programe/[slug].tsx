@@ -26,15 +26,6 @@ export default function Project({ projectsData, otherProjects }: any) {
             <div className="w-full md:w-[48%] flex flex-col items-start">
               <h1 className="text-3xl lg:text-4xl mb-3">{project.title}</h1>
               <p>{project.description}</p>
-
-              {/* {project.file != undefined && (
-                <AButton text={`${project.resourceName}`} link={`https:${resource.file}`} type="dark" icon={<AiOutlineCloudDownload />} />
-              )}
-              {resource.resource != undefined ? (
-                <AButton text={`${resource.resourceName}`} link={`${resource.resource}`} type="dark" icon={<FiExternalLink />} />
-              ) : (
-                <></>
-              )} */}
             </div>
             <div className="w-full md:w-[48%] my-5">
               <Image src={project.photo} width={400} height={400} alt="" className="drop-shadow-xl rounded-md w-full h-auto" />

@@ -14,6 +14,7 @@ export default function AButton({ text, icon, type, link }: LinkButton) {
       } ${type == "color" ? styles.color : ""} ${type == undefined || type == null ? `bg-[#fff] text-dark hover:bg-dark hover:text-[#fff] ` : ""}`}
       target="_blank"
       href={link}
+      rel="noreferrer"
     >
       {icon ? <div className="mr-[.5rem]">{icon}</div> : <></>}
       <p>{text}</p>

@@ -72,7 +72,7 @@ export default function Contact() {
     }
     handleName();
     return handleName();
-  }, [formData.name]);
+  }, [formData]);
 
   useEffect(() => {
     function handleEmail() {
@@ -91,7 +91,7 @@ export default function Contact() {
     }
     handleEmail();
     return handleEmail();
-  }, [formData.email]);
+  }, [formData]);
 
   useEffect(() => {
     function handleMessage() {
@@ -108,7 +108,7 @@ export default function Contact() {
     }
     handleMessage();
     return handleMessage();
-  }, [formData.message]);
+  }, [formData]);
 
   async function handleSubmit(e: any) {
     e.preventDefault();

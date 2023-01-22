@@ -1,7 +1,7 @@
 import { mailOptions, transporter } from "@/lib/nodemailer";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export  const mail = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (req.method === "POST") {
     const data = req.body;
@@ -39,3 +39,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   return res.status(400).json({ message: "Bad request" });
 };
+
+export default mail

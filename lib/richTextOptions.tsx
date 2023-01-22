@@ -43,7 +43,7 @@ const richTextOptions = {
           />
         </a>
       ) : (
-        <a href={node.data.uri} style={{ marginBottom: "1rem", cursor: "pointer", color: "purple" }}>
+        <a href={node.data.uri} rel="noreferrer" target="_blank" style={{ marginBottom: "1rem", cursor: "pointer", color: "purple" }}>
           {children}
         </a>
       );

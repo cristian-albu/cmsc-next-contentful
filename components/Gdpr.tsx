@@ -248,8 +248,10 @@ export default function Gdpr() {
           </div>
 
           <ul>
-            {staticData.privacy.body.map((e: string) => (
-              <li className={/\d/.test(e[0]) ? "text-xl mb-1" : "mb-5"}>{e}</li>
+            {staticData.privacy.body.map((e: string, i: number) => (
+              <li className={/\d/.test(e[0]) ? "text-xl mb-1" : "mb-5"} key={i}>
+                {e}
+              </li>
             ))}
           </ul>
           <Button text={staticData.banner.btnPrefs} type="color" onClick={() => openPrefs()} />
