@@ -22,8 +22,6 @@ export default function Home({ teamData, partnerData, eventsData, projectsData, 
   const { resources } = processResources(resourcesData);
   const { projects } = processProjects(projectsData);
 
-  console.log(projects);
-
   return (
     <>
       <HeroSection />
