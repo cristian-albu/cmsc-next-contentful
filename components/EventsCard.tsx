@@ -13,7 +13,7 @@ export default function EventsCard({ title, image, date, description, slug, loca
 
       <div className="flex flex-col pl-3 w-[60%] justify-start">
         <h3 className="text-2xl mb-2">{title}</h3>
-        <p className="text-pink font-bold mb-2">{date}</p>
+        <p className="text-pink font-bold mb-2">{formatDate(date)}</p>
         <p>{description}</p>
       </div>
     </Link>

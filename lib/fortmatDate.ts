@@ -1,4 +1,4 @@
-export  const formatDate = async (element: any) =>{
+export  const formatDate =  (element: any) =>{
     const months: any = {
       jan: "Ianuarie",
       feb: "februarie",
