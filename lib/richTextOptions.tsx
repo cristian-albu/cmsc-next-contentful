@@ -32,7 +32,7 @@ const richTextOptions = {
     },
 
     [INLINES.HYPERLINK]: (node: any, children: any) => {
-      return node.data.uri.split("://www.")[1].includes("youtu") ? (
+      return youtube_parser(node.data.uri) ? (
         <a style={{ display: "block", position: "relative", overflow: "hidden", width: "100%", paddingTop: "56.25%" }}>
           <iframe
             style={{ position: "absolute", top: "0", left: "0", bottom: "0", right: "0", width: "100%", height: "100%" }}

@@ -26,8 +26,11 @@ interface navLink {
     slug: string;
     image: string;
     id?:string;
-year?:string;
-content?: any;
+  year?:string;
+  content?: any;
+  resourceName? :string;
+  resource?: string;
+  file? :string
 
   }
 
@@ -36,6 +39,7 @@ content?: any;
   }
 
   interface ProjectCard {
+    id? :string;
     photo: string;
     title: string;
     slug: string;
@@ -43,6 +47,7 @@ content?: any;
     startDate?: string;
     endDate?: string;
     style?: "fullW";
+    content?: any;
   }
 
   interface ProjectList {

@@ -9,6 +9,7 @@ export default function processProjects(data: any) {
     slug: `${e?.fields?.slug}`,
     startDate: e?.fields?.startDate ? formatDate(`${e?.fields?.startDate}`) : `undefined`,
     endDate: e?.fields?.endDate ? formatDate(`${e?.fields?.endDate}`) : `undefined`,
+    content: e?.fields?.content,
   }));
 
   return { projects };

@@ -12,5 +12,7 @@ export default function processEvents(data: any) {
     body: e?.fields?.content,
   }));
 
+  // const events: Array<ResourceCard> = eventsData.sort((a: any, b: any) => (a.year < b.year ? 1 : -1));
+
   return { events };
 }
