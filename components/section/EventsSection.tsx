@@ -15,7 +15,7 @@ export default function EventsSection({ eventsList }: EventList) {
           <HorizontalLine />
           <div className="flex  justify-between items-start w-[100%] mb-5 flex-wrap">
             {eventsList.map((e: EventCard, i: number) => (
-              <EventsCard title={e.title} image={e.image} date={e.date} description={e.description} slug={e.slug} location={e.location} key={i} />
+              <EventsCard id={e.id} title={e.title} image={e.image} date={e.date} description={e.description} slug={e.slug} location={e.location} key={i} />
             ))}
           </div>
           <LinkButton type="dark" text="Vezi toate evenimentele" link="/evenimente" icon={<AiOutlineCalendar />} />
