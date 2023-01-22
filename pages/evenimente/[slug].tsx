@@ -6,12 +6,14 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Wrapper from "@/components/layout/Wrapper";
 import Section from "@/components/layout/Section";
 import richTextOptions from "@/lib/richTextOptions";
+import DynamicHead from "@/components/DynamicHead";
 
 export default function Event({ eventsData }: any) {
   const { events } = processEvents(eventsData);
 
   return (
     <>
+      <DynamicHead title={events[0].title} />
       <Section>
         <Wrapper>
           <div className="w-[70%]">{documentToReactComponents(events[0].body, richTextOptions)}</div>

@@ -1,4 +1,5 @@
 import client from "@/client";
+import DynamicHead from "@/components/DynamicHead";
 import ProjectCard from "@/components/ProjectCard";
 import HorizontalLine from "@/components/layout/HorizontalLine";
 import Section from "@/components/layout/Section";
@@ -14,6 +15,7 @@ export default function Projects({ projectsData }: any) {
 
   return (
     <>
+      <DynamicHead title="Proiecte şi programe" />
       <Section bg="light">
         <div className=" flex flex-col items-center justify-center mt-[8rem] mb-[-3rem]">
           <Wrapper>

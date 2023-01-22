@@ -1,4 +1,5 @@
 import client from "@/client";
+import DynamicHead from "@/components/DynamicHead";
 import PartnerCard from "@/components/PartnerCard";
 import TeamCard from "@/components/TeamCard";
 import HorizontalLine from "@/components/layout/HorizontalLine";
@@ -20,6 +21,7 @@ export default function About({ teamMembers, partnersList }: any) {
 
   return (
     <>
+      <DynamicHead title="Despre noi" />
       <Section>
         <Wrapper>
           <div className="mt-[8rem]">

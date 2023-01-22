@@ -11,6 +11,7 @@ import AButton from "@/components/AButton";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import Link from "next/link";
+import DynamicHead from "@/components/DynamicHead";
 
 export default function Project({ resourceData, otherResources }: any) {
   const { resources } = processResources(resourceData);
@@ -21,6 +22,7 @@ export default function Project({ resourceData, otherResources }: any) {
 
   return (
     <>
+      <DynamicHead title={resource.title} />
       <Section bg="light">
         <Wrapper>
           <div className="w-full mt-[6rem] flex justify-between items-center flex-wrap">

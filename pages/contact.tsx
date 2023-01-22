@@ -1,3 +1,4 @@
+import DynamicHead from "@/components/DynamicHead";
 import LinkButton from "@/components/LinkButton";
 import Section from "@/components/layout/Section";
 import Wrapper from "@/components/layout/Wrapper";
@@ -72,7 +73,7 @@ export default function Contact() {
     }
     handleName();
     return handleName();
-  }, [formData.name, formErrors]);
+  }, [formData.name]);
 
   useEffect(() => {
     function handleEmail() {
@@ -91,7 +92,7 @@ export default function Contact() {
     }
     handleEmail();
     return handleEmail();
-  }, [formData.email, formErrors]);
+  }, [formData.email]);
 
   useEffect(() => {
     function handleMessage() {
@@ -108,7 +109,7 @@ export default function Contact() {
     }
     handleMessage();
     return handleMessage();
-  }, [formData.message, formErrors]);
+  }, [formData.message]);
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -130,6 +131,7 @@ export default function Contact() {
 
   return (
     <>
+      <DynamicHead title="Contact" />
       <ToastContainer />
       <Section wave="bottom" bg="color">
         <Wrapper>

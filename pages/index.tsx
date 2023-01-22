@@ -14,6 +14,8 @@ import processEvents from "@/lib/processEvents";
 import processResources from "@/lib/processResources";
 import processProjects from "@/lib/processProjects";
 import { GetStaticProps } from "next";
+import Head from "next/head";
+import DynamicHead from "@/components/DynamicHead";
 
 export default function Home({ teamData, partnerData, eventsData, projectsData, resourcesData }: any) {
   const { team, council } = processTeam(teamData);
@@ -24,6 +26,7 @@ export default function Home({ teamData, partnerData, eventsData, projectsData, 
 
   return (
     <>
+      <DynamicHead title="Home" />
       <HeroSection />
       <EventsSection eventsList={events} />
       <PartnerSection partnerList={partners} />

@@ -1,4 +1,5 @@
 import client from "@/client";
+import DynamicHead from "@/components/DynamicHead";
 import EventsCard from "@/components/EventsCard";
 import HorizontalLine from "@/components/layout/HorizontalLine";
 import Section from "@/components/layout/Section";
@@ -12,6 +13,7 @@ export default function Events({ eventsData }: any) {
   const { events } = processEvents(eventsData);
   return (
     <>
+      <DynamicHead title="Evenimente" />
       <Section>
         <Wrapper>
           <div className="mt-[5rem] flex flex-col justify-center items-center">

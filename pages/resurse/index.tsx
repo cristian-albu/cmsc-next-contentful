@@ -1,4 +1,5 @@
 import client from "@/client";
+import DynamicHead from "@/components/DynamicHead";
 import EventsCard from "@/components/EventsCard";
 import ResourceCard from "@/components/ResourceCard";
 import HorizontalLine from "@/components/layout/HorizontalLine";
@@ -14,6 +15,7 @@ export default function Resources({ resourcesData }: any) {
 
   return (
     <>
+      <DynamicHead title="Resurse" />
       <Section bg="light">
         <Wrapper>
           <span className="flex gap-3 text-5xl mt-[8rem]  mb-[1rem]">

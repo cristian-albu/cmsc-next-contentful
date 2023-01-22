@@ -12,6 +12,7 @@ import { AiOutlineCloudDownload } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import Link from "next/link";
 import processProjects from "@/lib/processProjects";
+import DynamicHead from "@/components/DynamicHead";
 
 export default function Project({ projectsData, otherProjects }: any) {
   const { projects } = processProjects(projectsData);
@@ -20,6 +21,7 @@ export default function Project({ projectsData, otherProjects }: any) {
 
   return (
     <>
+      <DynamicHead title={project.title} />
       <Section bg="color" wave="bottom">
         <Wrapper>
           <div className="w-full mt-[6rem] flex justify-between items-center flex-wrap">
