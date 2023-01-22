@@ -13,7 +13,7 @@ export default function ProjectCard({ photo, title, slug, style, description, st
         </div>
         <div className="w-[100%] md:w-[66%] flex flex-col items-start">
           <p className="text-2xl font-bold mb-5">{title}</p>
-          <p className="mb-2">{formatDate(startDate)}</p>
+          <p className="mb-2">{startDate}</p>
           <p className="mb-5">{description}</p>
           <LinkButton text="Vezi mai multe" type="dark" link={`/proiecte-si-programe/${slug}`} />
         </div>
