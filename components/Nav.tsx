@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const styles = {
   nav: `flex items-center justify-between bg-dark text-[#fff] fixed top-0 left-0 w-[100%] z-[100] drop-shadow-xl`,
-  logo: `mr-[10rem]`,
+  logo: `mr-[10rem] h-[3.5rem]`,
   li: `transition-all hover:bg-[#fff] hover:text-dark list-none`,
   link: `flex items-center p-[1rem] `,
   linkText: `ml-1`,
@@ -57,15 +57,13 @@ export default function Nav() {
         transition={{ y: { duration: 0.2 }, default: { ease: "linear" } }}
       >
         <div className={styles.logo}>
-          <div className={styles.li} onClick={() => setBurgerMenu(false)}>
-            <Link href="/" className="hover:invert transition-all px-3 flex justify-center items-center max-h-[3.5rem] ">
-              <Image src={"/cmsc_logo_white.svg"} width={180} height={56} alt="logo cmsc" className="object-contain" />
-            </Link>
-          </div>
+          <Link href="/" className="hover:bg-[#fff]   transition-all  flex justify-center items-center h-full bg-dark " onClick={() => setBurgerMenu(false)}>
+            <Image src={"/cmsc_logo_white.svg"} width={180} height={56} alt="logo cmsc" className="object-contain h-full hover:invert px-3 transition-all" />
+          </Link>
         </div>
-        <a className={styles.burger} onClick={() => setBurgerMenu(!burgerMenu)}>
+        <div className={styles.burger} onClick={() => setBurgerMenu(!burgerMenu)}>
           <AiOutlineMenu className="text-xl" />
-        </a>
+        </div>
         <ul className={burgerMenu ? `${styles.ulMobile} scale-[1]` : `${styles.ulMobile} scale-[0]`}>
           {navData.map((e: any, i: number) => (
             <li className={styles.li} key={i} onClick={() => setBurgerMenu(false)}>

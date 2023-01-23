@@ -171,9 +171,9 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
           <div className="mb-5 flex flex-col">
             <span>
               {staticData.preferences.seeMore}{" "}
-              <a className="cursor-pointer hover:text-pink transition-colors" onClick={() => openPrivacy()}>
+              <div className="cursor-pointer hover:text-pink transition-colors" onClick={() => openPrivacy()}>
                 {staticData.banner.btnPrivacy}
-              </a>
+              </div>
             </span>
           </div>
           <div className={styles.buttonContainer}>
