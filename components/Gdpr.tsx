@@ -75,10 +75,9 @@ const staticData = {
   },
 };
 
-export default function Gdpr() {
+export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
-  const [showPrivacy, setShowPrivacy] = useState(false);
 
   const [cookiePref, setCookiePref] = useState(false);
   const [cookieAnalytics, setCookieAnalytics] = useState(false);

@@ -55,7 +55,9 @@ const richTextOptions = {
           width={node.data.target.fields.file.details.image.width}
           height={node.data.target.fields.file.details.image.height}
           alt={`${node.data.target.fields.file.fileName}`}
-          style={{ marginBottom: "1rem" }}
+          style={{ marginBottom: "1rem", borderRadius: "0.3rem" }}
+          placeholder="blur"
+          blurDataURL={"/hero_img_1.jpg"}
         />
       );
     },

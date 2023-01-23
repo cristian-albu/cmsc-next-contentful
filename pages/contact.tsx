@@ -17,7 +17,7 @@ const styles = {
   textArea: `max-w-full min-w-full min-h-[5rem] max-h-[10rem] scroll-auto`,
 };
 
-export default function Contact() {
+export default function Contact({ setShowPrivacy }: any) {
   const [success, setSuccess] = useState(false);
 
   const [inputClick, setInputClick] = useState("");
@@ -193,8 +193,14 @@ export default function Contact() {
                 {formErrors.messageErrorState && inputClick == "message" && <p className="mb-5 text-[#d04a4a]">{formErrorsText.messageFieldErr}</p>}
 
                 <label className="flex gap-2 cursor-pointer mb-3">
-                  <input type="checkbox" checked={formErrors.checkboxState} onChange={() => handleCheckbox()} />
-                  <p className="mt-0 p-0">Am citit şi sunt de acord cu politica de confidenţialitate *</p>
+                  <input type="checkbox" className="cursor-pointer" checked={formErrors.checkboxState} onChange={() => handleCheckbox()} />
+                  <span className="mt-0 p-0">
+                    <p>Am citit şi sunt de acord cu </p>
+                    <a className="cursor-pointer text-pink" onClick={() => setShowPrivacy(true)}>
+                      Politica de confidenţialitate
+                    </a>{" "}
+                    *
+                  </span>
                 </label>
 
                 {!formErrors.checkboxState && !formErrors.firstTimeCheckErr && <p className="mb-5 text-[#d04a4a]">{formErrorsText.checkboxFieldErr}</p>}

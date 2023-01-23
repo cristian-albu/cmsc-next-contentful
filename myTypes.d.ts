@@ -75,6 +75,7 @@ interface navLink {
     slug: string;
     location: string;
     body?: any;
+    
   }
 
   interface EventList {

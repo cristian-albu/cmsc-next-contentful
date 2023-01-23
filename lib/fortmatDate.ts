@@ -14,7 +14,7 @@ export  const formatDate =  (element: any) =>{
       dec: "Decembrie",
     };
     const date = new Date(element).toString().split(" ").slice(1, 4);
-    const translatedDate = `${months[date[0].toLocaleLowerCase()]} ${date[1]} ${date[2]}`;
+    const translatedDate = `${months[date[0].toLocaleLowerCase()]} ${date[1]}, ${date[2]}`;
 
     return translatedDate;
   }
