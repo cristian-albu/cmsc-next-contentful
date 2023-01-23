@@ -30,7 +30,7 @@ interface navLink {
   content?: any;
   resourceName? :string;
   resource?: string;
-  file? :string
+  file? : any |string
 
   }
 
@@ -96,5 +96,12 @@ interface navLink {
     children?: any;
     bg?: bg
     wave?: any
+  }
+
+
+  interface SEO {
+    title: string;
+    description?: string;
+    image?: string;
   }
 

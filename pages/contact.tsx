@@ -70,7 +70,8 @@ export default function Contact({ setShowPrivacy }: any) {
           });
     }
     handleName();
-    return handleName();
+    return () => handleName();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData.name]);
 
   useEffect(() => {
@@ -89,25 +90,27 @@ export default function Contact({ setShowPrivacy }: any) {
           });
     }
     handleEmail();
-    return handleEmail();
+    return () => handleEmail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData.email]);
 
-  function handleMessage() {
-    formData.message.length < 3 || formData.message.length > 500
-      ? setFormErrors({
-          ...formErrors,
-          messageErrorState: true,
-          firstTimeMsgErr: false,
-        })
-      : setFormErrors({
-          ...formErrors,
-          messageErrorState: false,
-        });
-  }
-
   useEffect(() => {
+    function handleMessage() {
+      formData.message.length < 3 || formData.message.length > 500
+        ? setFormErrors({
+            ...formErrors,
+            messageErrorState: true,
+            firstTimeMsgErr: false,
+          })
+        : setFormErrors({
+            ...formErrors,
+            messageErrorState: false,
+          });
+    }
     handleMessage();
-    return handleMessage();
+    return () => handleMessage();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData.message]);
 
   async function handleSubmit(e: any) {
@@ -130,7 +133,11 @@ export default function Contact({ setShowPrivacy }: any) {
 
   return (
     <>
-      <DynamicHead title="Contact" />
+      <DynamicHead
+        title={`Contact`}
+        description={`Centrul de Mediere si Securitate Comunitara (CMSC) este o fundatie independenta infiintata in anul 2000 in Iasi, Romania, construind impreuna cu comunitatile locale modele de dezvoltare si cooperare menite sa ofere un spatiu mai sigur, deschis si sustenabil.`}
+        image={`/assets/hero_img_3.jpg`}
+      />
       <ToastContainer />
       <Section wave="bottom" bg="color">
         <Wrapper>

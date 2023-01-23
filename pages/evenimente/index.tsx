@@ -13,7 +13,11 @@ export default function Events({ eventsData }: any) {
   const { events } = processEvents(eventsData);
   return (
     <>
-      <DynamicHead title="Evenimente" />
+      <DynamicHead
+        title={`Evenimente`}
+        description={`Centrul de Mediere si Securitate Comunitara (CMSC) este o fundatie independenta infiintata in anul 2000 in Iasi, Romania, construind impreuna cu comunitatile locale modele de dezvoltare si cooperare menite sa ofere un spatiu mai sigur, deschis si sustenabil.`}
+        image={`/assets/hero_img_4.jpg`}
+      />
       <Section>
         <Wrapper>
           <div className="mt-[5rem] flex flex-col justify-center items-center">

@@ -8,6 +8,7 @@ export default function EventsCard({ title, image, date, description, slug, loca
 
   useEffect(() => {
     setNewDate(formatDate(newDate));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

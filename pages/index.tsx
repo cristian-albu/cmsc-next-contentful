@@ -26,7 +26,11 @@ export default function Home({ teamData, partnerData, eventsData, projectsData, 
 
   return (
     <>
-      <DynamicHead title="Home" />
+      <DynamicHead
+        title={`Centrul de Mediere si Securitate Comunitara (CMSC)`}
+        description={`Centrul de Mediere si Securitate Comunitara (CMSC) este o fundatie independenta infiintata in anul 2000 in Iasi, Romania, construind impreuna cu comunitatile locale modele de dezvoltare si cooperare menite sa ofere un spatiu mai sigur, deschis si sustenabil.`}
+        image={`/assets/hero_img_3.jpg`}
+      />
       <HeroSection />
       <EventsSection eventsList={events} />
       <PartnerSection partnerList={partners} />

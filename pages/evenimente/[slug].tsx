@@ -26,7 +26,7 @@ export default function Project({ eventsData, otherEvents }: any) {
 
   return (
     <>
-      <DynamicHead title={event.title} />
+      <DynamicHead title={event.title} description={event.description} image={event.image} />
       <Section bg="light">
         <Wrapper>
           <div className="w-full mt-[6rem] flex justify-between items-center flex-wrap">

@@ -15,7 +15,11 @@ export default function Resources({ resourcesData }: any) {
 
   return (
     <>
-      <DynamicHead title="Resurse" />
+      <DynamicHead
+        title={`Resurse`}
+        description={`Spațiu dedicat celor dintre voi care doresc să navigheze în siguranță prin valuri de informații,clipuri video, cărți și proiecte realizate împreună cu tine, pentru tine`}
+        image={`/assets/hero_img_1.jpg`}
+      />
       <Section bg="light">
         <Wrapper>
           <span className="flex gap-3 text-5xl mt-[8rem]  mb-[1rem]">

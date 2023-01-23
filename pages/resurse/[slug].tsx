@@ -22,7 +22,7 @@ export default function Project({ resourceData, otherResources }: any) {
 
   return (
     <>
-      <DynamicHead title={resource.title} />
+      <DynamicHead title={resource.title} description={resource.resourceName} image={resource.image} />
       <Section bg="light">
         <Wrapper>
           <div className="w-full mt-[6rem] flex justify-between items-center flex-wrap">

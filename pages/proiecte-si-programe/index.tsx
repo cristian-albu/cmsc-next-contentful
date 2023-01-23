@@ -15,7 +15,11 @@ export default function Projects({ projectsData }: any) {
 
   return (
     <>
-      <DynamicHead title="Proiecte şi programe" />
+      <DynamicHead
+        title={`Proiecte şi Programe`}
+        description={`Proiectele si serviciile Centrului de Mediere si Securitate Comunitara sunt construite pe dezvoltarea si promovarea de politici publice si modele de dezvoltare comunitara, de cooperare si dezvoltare de bune practici, precum si campanii sau initiative legislative care sa contribuie la o viata mai sigura pentru comunitatile noastre, in familie si in societate.`}
+        image={`/assets/hero_img_4.jpg`}
+      />
       <Section bg="light">
         <div className=" flex flex-col items-center justify-center mt-[8rem] mb-[-3rem]">
           <Wrapper>

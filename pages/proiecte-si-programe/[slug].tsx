@@ -17,7 +17,7 @@ export default function Project({ projectsData, otherProjects }: any) {
 
   return (
     <>
-      <DynamicHead title={project.title} />
+      <DynamicHead title={project.title} description={project.description} image={project.photo} />
       <Section bg="color" wave="bottom">
         <Wrapper>
           <div className="w-full mt-[6rem] flex justify-between items-center flex-wrap">

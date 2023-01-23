@@ -9,6 +9,7 @@ export default function ProjectCard({ photo, title, slug, style, description, st
 
   useEffect(() => {
     setNewDate(formatDate(newDate));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (style == "fullW") {
