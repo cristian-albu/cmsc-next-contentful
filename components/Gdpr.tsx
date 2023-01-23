@@ -161,7 +161,7 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
     <div className={showPreferences || showPrivacy ? `${styles.container} ${styles.containerOpened}` : styles.container} style={{ zIndex: "98" }}>
       <div className={styles.prefButton} aria-describedby={"Preferinţe şi politica de confidenţialitate"} onClick={() => openPrefs()} id="prefsHover">
         🍪
-        <a className={`absolute bg-[#fff] text-dark rounded-md drop-shadow-xl p-3 bottom-[2rem] left-[20%] text-lg`}>{staticData.banner.btnPrefs}</a>
+        <div className={`absolute bg-[#fff] text-dark rounded-md drop-shadow-xl p-3 bottom-[2rem] left-[20%] text-lg`}>{staticData.banner.btnPrefs}</div>
       </div>
       {showPreferences || showPrivacy ? <div className={styles.close} onClick={() => handleClose()} /> : <></>}
       {showBanner ? (
@@ -195,9 +195,9 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
           <div className="mb-5 flex flex-col">
             <span>
               {staticData.preferences.seeMore}{" "}
-              <a className={styles.secondaryButton} onClick={() => openPrivacy()}>
+              <div className={styles.secondaryButton} onClick={() => openPrivacy()}>
                 {staticData.banner.btnPrivacy}
-              </a>
+              </div>
             </span>
           </div>
           <HorizontalLine />
@@ -241,9 +241,9 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
           <p className="text-2xl ">{staticData.banner.btnPrivacy}</p>
           <HorizontalLine />
           <div className="mb-3">
-            <a className={styles.secondaryButton} onClick={() => openPrefs()}>
+            <div className={styles.secondaryButton} onClick={() => openPrefs()}>
               {staticData.banner.btnPrefs}
-            </a>
+            </div>
           </div>
 
           <ul>
@@ -260,13 +260,13 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
       )}
 
       <style jsx>{`
-        #prefsHover > a {
+        #prefsHover > div {
           transition: transform 0.2s;
           transform-origin: bottom left;
           transform: scale(0);
         }
 
-        #prefsHover:hover > a {
+        #prefsHover:hover > div {
           transform: scale(1);
         }
         #cookieCheckboxContainer {
