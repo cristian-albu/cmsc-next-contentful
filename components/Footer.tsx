@@ -18,9 +18,9 @@ export default function Footer({ setShowPrivacy }: any) {
               <Link href="/resurse">Resurse</Link>
               <Link href="/despre-noi">Despre noi</Link>
               <Link href="/contact">Contact</Link>
-              <a className="cursor-pointer" onClick={() => setShowPrivacy(true)}>
+              <div className="cursor-pointer" onClick={() => setShowPrivacy(true)}>
                 Politica de confidenţialitate
-              </a>
+              </div>
             </div>
             <div className="flex flex-col items-start justify-start w-full lg:w-[48%] gap-3">
               <p className="text-xl ">Date contact</p>

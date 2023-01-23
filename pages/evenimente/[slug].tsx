@@ -22,6 +22,7 @@ export default function Project({ eventsData, otherEvents }: any) {
 
   useEffect(() => {
     setNewDate(formatDate(newDate));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
