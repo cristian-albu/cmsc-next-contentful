@@ -2,6 +2,7 @@ import React from "react";
 import Section from "./layout/Section";
 import Wrapper from "./layout/Wrapper";
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Footer({ setShowPrivacy }: any) {
   return (
@@ -33,6 +34,20 @@ export default function Footer({ setShowPrivacy }: any) {
               <a href="https://goo.gl/maps/dN65DYnXFbjzioZh9" target="_blank" rel="noreferrer">
                 Constantin Langa Street no. 103X, Miroslava village, Miroslava commune, Iasi county, Romania, 707305
               </a>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div id="google_translate_element"></div>
+              <Script type="text/javascript">
+                {`
+                  function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'ro', layout: google.translate.TranslateElement}, 'google_translate_element');
+                  }
+                  `}
+              </Script>
+
+              <Script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></Script>
             </div>
           </div>
         </Wrapper>

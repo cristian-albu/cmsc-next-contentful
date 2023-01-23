@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { AiOutlineCalendar, AiOutlineMenu, AiOutlineTeam } from "react-icons/ai";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { BsBook } from "react-icons/bs";
-
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import Image from "next/image";
+import Script from "next/script";
 
 const styles = {
   nav: `flex items-center justify-between bg-dark text-[#fff] fixed top-0 left-0 w-[100%] z-[100] drop-shadow-xl`,
