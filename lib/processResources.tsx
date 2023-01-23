@@ -5,10 +5,10 @@ export default function processResources(data: any) {
     image: `https:${e?.fields?.image?.fields?.file?.url}`,
     slug: `${e?.fields?.slug}`,
     year: e?.fields?.year ? `${e?.fields?.year}` : "",
-    content: e?.fields?.content,
+    content: e?.fields?.content ? e?.fields?.content : "",
     resource: e?.fields?.link ? `${e?.fields?.link}` : undefined,
     file: e?.fields?.file?.fields?.file?.url ? e?.fields?.file?.fields?.file?.url : undefined,
-    resourceName: `${e?.fields?.linkName}`,
+    resourceName: e?.fields?.linkName ? `${e?.fields?.linkName}` : "",
   }));
 
   const resources: Array<ResourceCard> = resourcesData.sort((a: any, b: any) => (a.year < b.year ? 1 : -1));

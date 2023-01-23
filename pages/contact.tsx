@@ -58,18 +58,16 @@ export default function Contact({ setShowPrivacy }: any) {
 
   useEffect(() => {
     function handleName() {
-      if (formData.name.length < 3 || formData.name.length > 50) {
-        setFormErrors({
-          ...formErrors,
-          nameErrorState: true,
-          firstTimeNameErr: false,
-        });
-      } else {
-        setFormErrors({
-          ...formErrors,
-          nameErrorState: false,
-        });
-      }
+      formData.name.length < 3 || formData.name.length > 50
+        ? setFormErrors({
+            ...formErrors,
+            nameErrorState: true,
+            firstTimeNameErr: false,
+          })
+        : setFormErrors({
+            ...formErrors,
+            nameErrorState: false,
+          });
     }
     handleName();
     return handleName();
@@ -94,19 +92,20 @@ export default function Contact({ setShowPrivacy }: any) {
     return handleEmail();
   }, [formData.email]);
 
+  function handleMessage() {
+    formData.message.length < 3 || formData.message.length > 500
+      ? setFormErrors({
+          ...formErrors,
+          messageErrorState: true,
+          firstTimeMsgErr: false,
+        })
+      : setFormErrors({
+          ...formErrors,
+          messageErrorState: false,
+        });
+  }
+
   useEffect(() => {
-    function handleMessage() {
-      formData.message.length < 3 || formData.message.length > 500
-        ? setFormErrors({
-            ...formErrors,
-            messageErrorState: true,
-            firstTimeMsgErr: false,
-          })
-        : setFormErrors({
-            ...formErrors,
-            messageErrorState: false,
-          });
-    }
     handleMessage();
     return handleMessage();
   }, [formData.message]);
@@ -198,7 +197,7 @@ export default function Contact({ setShowPrivacy }: any) {
                     <p>Am citit şi sunt de acord cu </p>
                     <a className="cursor-pointer text-pink" onClick={() => setShowPrivacy(true)}>
                       Politica de confidenţialitate
-                    </a>{" "}
+                    </a>
                     *
                   </span>
                 </label>

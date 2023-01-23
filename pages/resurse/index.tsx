@@ -42,7 +42,11 @@ export default function Resources({ resourcesData }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const resourcesData = await client.getEntries({ content_type: "resources" });
+  const resourcesData = await client.getEntries({
+    content_type: "resources",
+    select: "fields.name,fields.slug,fields.year,fields.image",
+    order: "fields.year",
+  });
 
   return {
     props: { resourcesData },

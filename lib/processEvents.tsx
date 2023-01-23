@@ -7,10 +7,8 @@ export default function processEvents(data: any) {
     description: `${e?.fields?.description}`,
     slug: `${e?.fields?.slug}`,
     location: `${e?.fields?.locationText}`,
-    body: e?.fields?.content,
+    body: e?.fields?.content ? e?.fields?.content : "",
   }));
-
-  // const events: Array<ResourceCard> = eventsData.sort((a: any, b: any) => (a.year < b.year ? 1 : -1));
 
   return { events };
 }

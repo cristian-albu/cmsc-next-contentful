@@ -79,7 +79,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const eventsData = await client.getEntries({ content_type: "events", "fields.slug": params?.slug });
 
-  const otherEvents = await client.getEntries({ content_type: "events", limit: 4 });
+  const otherEvents = await client.getEntries({
+    content_type: "events",
+    select: "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
+    order: "fields.date",
+    limit: 4,
+  });
 
   return {
     props: { eventsData, otherEvents },

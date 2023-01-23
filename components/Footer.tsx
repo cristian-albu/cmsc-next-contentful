@@ -24,11 +24,15 @@ export default function Footer({ setShowPrivacy }: any) {
             </div>
             <div className="flex flex-col items-start justify-start w-full lg:w-[48%] gap-3">
               <p className="text-xl ">Date contact</p>
-              <a href="">Pagina Facebook</a>
-              <a href="">Email: lalbu@cmsc.ro</a>
-              <a href="">Telefon mobil: +40 722 500 372</a>
-              <a href="">Telefon fix: +40 332 231 249</a>
-              <a href="">Constantin Langa Street no. 103X, Miroslava village, Miroslava commune, Iasi county, Romania, 707305</a>
+              <a href="https://www.facebook.com/centruldemedieresisecuritatecomunitara" target="_blank" rel="no-referrer">
+                Pagina Facebook
+              </a>
+              <p>Email: lalbu@cmsc.ro</p>
+              <p>Telefon mobil: +40 722 500 372</p>
+              <p>Telefon fix: +40 332 231 249</p>
+              <a href="https://goo.gl/maps/dN65DYnXFbjzioZh9" target="_blank" rel="no-referrer">
+                Constantin Langa Street no. 103X, Miroslava village, Miroslava commune, Iasi county, Romania, 707305
+              </a>
             </div>
           </div>
         </Wrapper>

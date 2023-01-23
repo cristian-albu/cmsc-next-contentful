@@ -40,18 +40,31 @@ export default function Home({ teamData, partnerData, eventsData, projectsData, 
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teamData = await client.getEntries({ content_type: "teamMembers" });
+  const teamData = await client.getEntries({ content_type: "teamMembers", order: "fields.order" });
 
   const partnerData = await client.getEntries({ content_type: "partners" });
 
-  const resourcesData = await client.getEntries({ content_type: "resources" });
+  const resourcesData = await client.getEntries({
+    content_type: "resources",
+    select: "fields.name,fields.slug,fields.year",
+    order: "fields.year",
+  });
 
-  const eventsData = await client.getEntries({ content_type: "events", limit: 2 });
+  const eventsData = await client.getEntries({
+    content_type: "events",
+    limit: 2,
+    select: "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
+    order: "fields.date",
+  });
 
-  const projectsData = await client.getEntries({ content_type: "projectsPrograms", limit: 4 });
+  const projectsData = await client.getEntries({
+    content_type: "projectsPrograms",
+    select: "fields.name,fields.slug,fields.thumbnail,fields.summary",
+    limit: 4,
+  });
 
   return {
     props: { teamData, partnerData, eventsData, resourcesData, projectsData },
-    revalidate: 600,
+    revalidate: 180,
   };
 };

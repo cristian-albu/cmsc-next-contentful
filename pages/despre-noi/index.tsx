@@ -52,6 +52,6 @@ export async function getStaticProps() {
 
   return {
     props: { teamMembers: teamData, partnersList: partnerData },
-    revalidate: 30,
+    revalidate: 180,
   };
 }

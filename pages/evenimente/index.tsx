@@ -38,10 +38,14 @@ export default function Events({ eventsData }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const eventsData = await client.getEntries({ content_type: "events" });
+  const eventsData = await client.getEntries({
+    content_type: "events",
+    select: "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
+    order: "fields.date",
+  });
 
   return {
     props: { eventsData },
-    revalidate: 600,
+    revalidate: 180,
   };
 };

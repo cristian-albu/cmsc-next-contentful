@@ -54,10 +54,10 @@ export default function Projects({ projectsData }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projectsData = await client.getEntries({ content_type: "projectsPrograms" });
+  const projectsData = await client.getEntries({ content_type: "projectsPrograms", select: "fields.name,fields.slug,fields.thumbnail,fields.summary" });
 
   return {
     props: { projectsData },
-    revalidate: 600,
+    revalidate: 180,
   };
 };

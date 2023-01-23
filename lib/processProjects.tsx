@@ -5,9 +5,9 @@ export default function processProjects(data: any) {
     description: `${e?.fields?.summary}`,
     photo: `https:${e?.fields?.thumbnail?.fields?.file?.url}`,
     slug: `${e?.fields?.slug}`,
-    startDate: e?.fields?.startDate,
-    endDate: e?.fields?.endDate,
-    content: e?.fields?.content,
+    startDate: e?.fields?.startDate ? e?.fields?.startDate : "",
+    endDate: e?.fields?.endDate ? e?.fields?.endDate : "",
+    content: e?.fields?.content ? e?.fields?.content : "",
   }));
 
   return { projects };
