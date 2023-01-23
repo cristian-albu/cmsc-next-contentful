@@ -39,7 +39,7 @@ export default function Footer({ setShowPrivacy }: any) {
           <div>
             <div>
               <div id="google_translate_element"></div>
-              <Script type="text/javascript">
+              <Script id="googleTranslateScript" type="text/javascript">
                 {`
                   function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'ro', layout: google.translate.TranslateElement}, 'google_translate_element');
@@ -47,7 +47,11 @@ export default function Footer({ setShowPrivacy }: any) {
                   `}
               </Script>
 
-              <Script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></Script>
+              <Script
+                id="googleTranslateScript2"
+                type="text/javascript"
+                src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+              ></Script>
             </div>
           </div>
         </Wrapper>
