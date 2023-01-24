@@ -1,12 +1,12 @@
+import ChangeSite from "@/components/ChangeSite";
 import Footer from "@/components/Footer";
 import Gdpr from "@/components/Gdpr";
 import Nav from "@/components/Nav";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Link from "next/link";
-import Script from "next/script";
 import { useState } from "react";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [showPrivacy, setShowPrivacy] = useState(false);
@@ -25,9 +25,18 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <Nav />
-
+      <FloatingWhatsApp
+        phoneNumber="0722500372"
+        accountName="CMSC"
+        avatar="/images/apple-touch-icon.png"
+        placeholder="Scrie un mesaj"
+        statusMessage="Răspunde tipic intr-o oră"
+        chatMessage="Cum te putem ajuta?"
+        allowClickAway={true}
+        allowEsc={true}
+      />
       <Gdpr showPrivacy={showPrivacy} setShowPrivacy={setShowPrivacy} />
-
+      <ChangeSite />
       <Component {...pageProps} setShowPrivacy={setShowPrivacy} />
       <Footer setShowPrivacy={setShowPrivacy} />
     </div>

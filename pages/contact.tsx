@@ -141,7 +141,7 @@ export default function Contact({ setShowPrivacy }: any) {
       <ToastContainer />
       <Section wave="bottom" bg="color">
         <Wrapper>
-          <div className="flex justify-between mt-[4rem]" onSubmit={(e) => handleSubmit(e)}>
+          <div className="flex justify-between mt-[4rem] flex-wrap" onSubmit={(e) => handleSubmit(e)}>
             {!success && (
               <form method="post" className={styles.form}>
                 <h2 className="text-2xl mb-5">Trimite un mesaj</h2>
@@ -222,13 +222,13 @@ export default function Contact({ setShowPrivacy }: any) {
               </form>
             )}
             {success && (
-              <div className="w-[50%] flex flex-col gap-5 justify-center items-center py-[10rem]">
+              <div className="w-full lg:w-[50%] flex flex-col gap-5 justify-center items-center py-[10rem]">
                 <p className="text-xl">Mesajul tău a fost trimis cu succes!</p>
                 <p>Îţi vom răspunde cât de repede putem</p>
                 <LinkButton text="Mergi pe pagina de acasă" link="/" />
               </div>
             )}
-            <div className="w-[50%] flex flex-col justify-center gap-5 p-10">
+            <div className="w-full lg:w-[50%] flex flex-col justify-center gap-5 p-10">
               <div className=" mb-[1rem]">
                 <span className="flex gap-3 text-4xl items-center">
                   <FaRegEnvelope />

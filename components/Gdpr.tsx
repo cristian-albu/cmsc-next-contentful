@@ -6,9 +6,9 @@ import { AiOutlineCheckCircle, AiOutlineSave, AiOutlineSetting } from "react-ico
 import { RxCrossCircled } from "react-icons/rx";
 
 const styles = {
-  container: `fixed bottom-0 left-0  flex flex-col justify-center items-center `,
+  container: `fixed bottom-0 right-0  flex flex-col justify-center items-center `,
   containerOpened: `w-[100vw] h-[100vh] p-[2rem] md:p-[4rem] 2xl:p-[5rem]`,
-  prefButton: `absolute bottom-[1rem] left-[1rem] text-2xl bg-[#fff] p-1 drop-shadow-xl rounded-full cursor-pointer flex items-end`,
+  prefButton: `absolute bottom-[1.5rem] right-[7rem] text-2xl bg-[#fff] p-1 drop-shadow-xl rounded-full cursor-pointer flex items-end`,
   bannerContainer: `absolute left-[10vw] bottom-0 bg-dark text-[#fff] p-10 rounded-tl-[3rem]  rounded-tr-[3rem] drop-shadow-xl w-[80vw] flex flex-col drop-shadow-2xl`,
   prefsContainer: `bg-[#fff] p-8 rounded-md drop-shadow-xl w-[100%] flex flex-col overflow-auto max-h-[80vh] items-start max-w-[1200px]`,
   close: `absolute w-[100%] h-[100%] transition bg-[#00000021] backdrop-blur-sm flex justify-end items-start pt-[5rem] pr-[3rem] cursor-pointer`,
@@ -161,7 +161,7 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
     <div className={showPreferences || showPrivacy ? `${styles.container} ${styles.containerOpened}` : styles.container} style={{ zIndex: "98" }}>
       <div className={styles.prefButton} aria-describedby={"Preferinţe şi politica de confidenţialitate"} onClick={() => openPrefs()} id="prefsHover">
         🍪
-        <div className={`absolute bg-[#fff] text-dark rounded-md drop-shadow-xl p-3 bottom-[2rem] left-[20%] text-lg`}>{staticData.banner.btnPrefs}</div>
+        <div className={`absolute bg-[#fff] text-dark rounded-md drop-shadow-xl p-3 bottom-[2rem] right-[20%]  text-lg`}>{staticData.banner.btnPrefs}</div>
       </div>
       {showPreferences || showPrivacy ? <div className={styles.close} onClick={() => handleClose()} /> : <></>}
       {showBanner ? (
@@ -262,7 +262,7 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
       <style jsx>{`
         #prefsHover > div {
           transition: transform 0.2s;
-          transform-origin: bottom left;
+          transform-origin: bottom right;
           transform: scale(0);
         }
 
