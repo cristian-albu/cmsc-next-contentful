@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <Nav />
       <FloatingWhatsApp
-        phoneNumber="0722500372"
+        phoneNumber="40722500372"
         accountName="CMSC"
         avatar="/images/apple-touch-icon.png"
         placeholder="Scrie un mesaj"
