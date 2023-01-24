@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const eventsData = await client.getEntries({
     content_type: "events",
     select: "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
-    order: "fields.date",
+    order: "-fields.date",
   });
 
   return {

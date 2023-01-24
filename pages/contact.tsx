@@ -236,13 +236,13 @@ export default function Contact({ setShowPrivacy }: any) {
                 </span>
               </div>
               <span className="flex flex-col gap-2">
-                <p className="font-bold">Telefon mobil:</p>
-                <p>+40 722 500 372</p>
+                <p className="font-bold">Telefon verde:</p>
+                <p>0800.070.017</p>
               </span>
 
               <span className="flex flex-col gap-2">
-                <p className="font-bold">Telefon mobil:</p>
-                <p>+40 332 231 249</p>
+                <p className="font-bold">Telefon urgență:</p>
+                <p>+40787.878.806</p>
               </span>
 
               <span className="flex flex-col gap-2">

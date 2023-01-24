@@ -10,5 +10,5 @@ export const transporter = nodemailer.createTransport({
 
 export const mailOptions = {
   from: process.env.NODEMAILER_EMAIL,
-  to: process.env.NODEMAILER_EMAIL,
+  to: `lalbu@cmsc.ro, ${process.env.NODEMAILER_EMAIL}`,
 };

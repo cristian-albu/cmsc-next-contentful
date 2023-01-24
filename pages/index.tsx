@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
     content_type: "events",
     limit: 2,
     select: "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
-    order: "fields.date",
+    order: "-fields.date",
   });
 
   const projectsData = await client.getEntries({
