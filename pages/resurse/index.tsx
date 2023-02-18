@@ -27,8 +27,9 @@ export default function Resources({ resourcesData }: any) {
             <h1>Resurse</h1>
           </span>
           <p className="w-[100%] md:w-[50%] mb-[-4rem]">
-            Spațiu dedicat celor dintre voi care doresc să navigheze în siguranță prin valuri de informații,clipuri video, cărți și proiecte realizate împreună
-            cu tine, pentru tine
+            Spațiu dedicat celor dintre voi care doresc să navigheze în
+            siguranță prin valuri de informații,clipuri video, cărți și proiecte
+            realizate împreună cu tine, pentru tine
           </p>
         </Wrapper>
       </Section>
@@ -36,7 +37,13 @@ export default function Resources({ resourcesData }: any) {
         <Wrapper>
           <div className="flex flex-wrap w-full justify-between mt-[-3rem]">
             {resources.map((e: ResourceCard) => (
-              <ResourceCard title={e.title} slug={e.slug} image={e.image} year={e.year} key={e.id} />
+              <ResourceCard
+                title={e.title}
+                slug={e.slug}
+                image={e.image}
+                year={e.year}
+                key={e.id}
+              />
             ))}
           </div>
         </Wrapper>
@@ -54,6 +61,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { resourcesData },
-    revalidate: 180,
+    revalidate: 1000 * 60 * 60 * 4,
   };
 };

@@ -25,7 +25,9 @@ export default function Projects({ projectsData }: any) {
           <Wrapper>
             <span className="flex mb-10">
               <BsBook className="text-3xl md:text-5xl mr-3" />
-              <h1 className="text-3xl md:text-5xl">{staticData.projects.title}</h1>
+              <h1 className="text-3xl md:text-5xl">
+                {staticData.projects.title}
+              </h1>
             </span>
           </Wrapper>
           <Wrapper>
@@ -49,7 +51,15 @@ export default function Projects({ projectsData }: any) {
       <Section wave="top">
         {projects.map((e: ProjectCard, i: number) => (
           <Wrapper key={i}>
-            <ProjectCard title={e.title} photo={e.photo} slug={e.slug} style="fullW" description={e.description} startDate={e.startDate} endDate={e.endDate} />
+            <ProjectCard
+              title={e.title}
+              photo={e.photo}
+              slug={e.slug}
+              style="fullW"
+              description={e.description}
+              startDate={e.startDate}
+              endDate={e.endDate}
+            />
           </Wrapper>
         ))}
       </Section>
@@ -58,10 +68,13 @@ export default function Projects({ projectsData }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projectsData = await client.getEntries({ content_type: "projectsPrograms", select: "fields.name,fields.slug,fields.thumbnail,fields.summary" });
+  const projectsData = await client.getEntries({
+    content_type: "projectsPrograms",
+    select: "fields.name,fields.slug,fields.thumbnail,fields.summary",
+  });
 
   return {
     props: { projectsData },
-    revalidate: 180,
+    revalidate: 1000 * 60 * 60 * 4,
   };
 };

@@ -32,7 +32,16 @@ export default function Events({ eventsData }: any) {
         <Wrapper>
           <div className="flex justify-between items-start flex-wrap w-full">
             {events.map((e: EventCard) => (
-              <EventsCard key={e.id} id={e.id} title={e.title} image={e.image} date={e.date} description={e.description} slug={e.slug} location={e.location} />
+              <EventsCard
+                key={e.id}
+                id={e.id}
+                title={e.title}
+                image={e.image}
+                date={e.date}
+                description={e.description}
+                slug={e.slug}
+                location={e.location}
+              />
             ))}
           </div>
         </Wrapper>
@@ -44,12 +53,13 @@ export default function Events({ eventsData }: any) {
 export const getStaticProps: GetStaticProps = async () => {
   const eventsData = await client.getEntries({
     content_type: "events",
-    select: "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
+    select:
+      "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
     order: "-fields.date",
   });
 
   return {
     props: { eventsData },
-    revalidate: 180,
+    revalidate: 1000 * 60 * 60 * 4,
   };
 };

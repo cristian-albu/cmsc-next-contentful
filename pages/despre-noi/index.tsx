@@ -35,8 +35,12 @@ export default function About({ teamMembers, partnersList }: any) {
             </span>
 
             <div className="flex flex-wrap justify-between">
-              <p className="w-full lg:w-[48%] mb-5">{staticData.about.description}</p>
-              <p className="w-full lg:w-[48%] mb-5">{staticData.about.description2}</p>
+              <p className="w-full lg:w-[48%] mb-5">
+                {staticData.about.description}
+              </p>
+              <p className="w-full lg:w-[48%] mb-5">
+                {staticData.about.description2}
+              </p>
             </div>
           </div>
         </Wrapper>
@@ -56,6 +60,6 @@ export async function getStaticProps() {
 
   return {
     props: { teamMembers: teamData, partnersList: partnerData },
-    revalidate: 180,
+    revalidate: 1000 * 60 * 60 * 4,
   };
 }

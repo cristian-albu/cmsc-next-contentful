@@ -17,7 +17,13 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import DynamicHead from "@/components/DynamicHead";
 
-export default function Home({ teamData, partnerData, eventsData, projectsData, resourcesData }: any) {
+export default function Home({
+  teamData,
+  partnerData,
+  eventsData,
+  projectsData,
+  resourcesData,
+}: any) {
   const { team, council } = processTeam(teamData);
   const { partners } = processPartners(partnerData);
   const { events } = processEvents(eventsData);
@@ -44,7 +50,10 @@ export default function Home({ teamData, partnerData, eventsData, projectsData, 
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teamData = await client.getEntries({ content_type: "teamMembers", order: "fields.order" });
+  const teamData = await client.getEntries({
+    content_type: "teamMembers",
+    order: "fields.order",
+  });
 
   const partnerData = await client.getEntries({ content_type: "partners" });
 
@@ -57,7 +66,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const eventsData = await client.getEntries({
     content_type: "events",
     limit: 2,
-    select: "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
+    select:
+      "fields.name,fields.slug,fields.thumbnail,fields.date,fields.locationText,fields.description",
     order: "-fields.date",
   });
 
@@ -69,6 +79,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { teamData, partnerData, eventsData, resourcesData, projectsData },
-    revalidate: 180,
+    revalidate: 1000 * 60 * 60 * 4,
   };
 };
