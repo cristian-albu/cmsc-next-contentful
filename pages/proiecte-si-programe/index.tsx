@@ -13,7 +13,6 @@ import { BsBook } from "react-icons/bs";
 export default function Projects({ projectsData }: any) {
   const { projects } = processProjects(projectsData);
 
-  console.log(projects);
   return (
     <>
       <DynamicHead
