@@ -34,7 +34,9 @@ export default function ProjectCard({
         </div>
         <div className="w-[100%] md:w-[66%] flex flex-col items-start">
           <p className="text-2xl font-bold mb-5">{title}</p>
-
+          <p className="mb-2">
+            {!newDate?.includes("undefined") ? newDate : ""}
+          </p>
           <p className="mb-5">{description}</p>
           <LinkButton
             text="Vezi mai multe"

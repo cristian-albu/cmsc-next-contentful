@@ -14,7 +14,6 @@ export default function Projects({ projectsData }: any) {
   const { projects } = processProjects(projectsData);
 
   console.log(projects);
-
   return (
     <>
       <DynamicHead
@@ -72,7 +71,8 @@ export default function Projects({ projectsData }: any) {
 export const getStaticProps: GetStaticProps = async () => {
   const projectsData = await client.getEntries({
     content_type: "projectsPrograms",
-    select: "fields.name,fields.slug,fields.thumbnail,fields.summary",
+    select:
+      "fields.name,fields.slug,fields.thumbnail,fields.summary,fields.startDate",
   });
 
   return {
