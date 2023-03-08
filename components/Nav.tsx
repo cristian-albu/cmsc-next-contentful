@@ -7,6 +7,7 @@ import {
   AiOutlineMenu,
   AiOutlineTeam,
 } from "react-icons/ai";
+import { BiDonateHeart } from "react-icons/bi";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { BsBook } from "react-icons/bs";
 import { useMotionValueEvent, useScroll } from "framer-motion";
@@ -34,6 +35,11 @@ const navData: Array<navLink> = [
   { title: "Evenimente", link: "/evenimente", icon: <AiOutlineCalendar /> },
   { title: "Despre noi", link: "/despre-noi", icon: <AiOutlineTeam /> },
   { title: "Contact", link: "/contact", icon: <FaRegEnvelope /> },
+  {
+    title: "Donează",
+    link: "https://donate.stripe.com/7sIcMX3UW1Bu6fC9AA",
+    icon: <BiDonateHeart />,
+  },
 ];
 
 export default function Nav() {
@@ -100,10 +106,22 @@ export default function Nav() {
               key={i}
               onClick={() => setBurgerMenu(false)}
             >
-              <Link href={e.link} className={styles.link}>
-                {e.icon}
-                <p className={styles.linkText}>{e.title}</p>
-              </Link>
+              {i === navData.length - 1 ? (
+                <a
+                  href={e.link}
+                  className={styles.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {e.icon}
+                  <p className={styles.linkText}>{e.title}</p>
+                </a>
+              ) : (
+                <Link href={e.link} className={styles.link}>
+                  {e.icon}
+                  <p className={styles.linkText}>{e.title}</p>
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -114,10 +132,22 @@ export default function Nav() {
               key={i}
               onClick={() => setBurgerMenu(false)}
             >
-              <Link href={e.link} className={styles.link}>
-                {e.icon}
-                <p className={styles.linkText}>{e.title}</p>
-              </Link>
+              {i === navData.length - 1 ? (
+                <a
+                  href={e.link}
+                  className={styles.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {e.icon}
+                  <p className={styles.linkText}>{e.title}</p>
+                </a>
+              ) : (
+                <Link href={e.link} className={styles.link}>
+                  {e.icon}
+                  <p className={styles.linkText}>{e.title}</p>
+                </Link>
+              )}
             </li>
           ))}
         </ul>
