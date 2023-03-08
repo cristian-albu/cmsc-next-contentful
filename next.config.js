@@ -3,7 +3,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.ctfassets.net", "assets.ctfassets.net"],
+    domains: [
+      "images.ctfassets.net",
+      "assets.ctfassets.net",
+      "https://www.koddezign.com",
+    ],
   },
 };
 

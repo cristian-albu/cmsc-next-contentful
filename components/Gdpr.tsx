@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import HorizontalLine from "./layout/HorizontalLine";
 import { setCookie, getCookie, hasCookie } from "cookies-next";
 import Button from "./Button";
-import { AiOutlineCheckCircle, AiOutlineSave, AiOutlineSetting } from "react-icons/ai";
+import {
+  AiOutlineCheckCircle,
+  AiOutlineSave,
+  AiOutlineSetting,
+} from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
 
 const styles = {
@@ -32,7 +36,7 @@ const staticData = {
     seeMore: `Vezi mai multe pe`,
     desc: `Folosim cookie-uri pentru a vă îmbunătăți experiența de navigare și pentru a personaliza conținutul pe care îl prezentăm. Meniul de preferinţe vă permite să controlați tipurile de cookie-uri pe care le acceptați.`,
     essentialTitle: `Esenţiale`,
-    essentialDesc: `Pentru funcţionarea site-ului. Ne trebuie măcar 1 cookie pentru a stoca alegerea dvs. (numele acestuia este "consentChoice")`,
+    essentialDesc: `Pentru funcţionarea site-ului. Ne trebuie măcar 1 cookie pentru a stoca alegerea dvs. (numele acestuia este "consentChoiceCMSC")`,
     prefsTitle: `Preferinţă`,
     prefDesc: `Pentru a putea vizualiza anumite tipuri de conţinut (exemplu: postări de pe Facebook sau video-uri de pe YouTube ce utilizează cookie-uri)`,
     analyticsTitle: `Analitice`,
@@ -105,18 +109,20 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
     setCookiePref(true);
     setCookieAnalytics(true);
     setCookieAds(true);
-    setCookie("consentChoice", "acceptAll", { maxAge: 120960000 });
+    setCookie("consentChoiceCMSC", "acceptAll", { maxAge: 120960000 });
     handleClose();
   }
 
   function handleRefuseAll() {
     document.cookie.split(";").forEach(function (c) {
-      document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+      document.cookie = c
+        .replace(/^ +/, "")
+        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
     });
     setCookiePref(false);
     setCookieAnalytics(false);
     setCookieAds(false);
-    setCookie("consentChoice", "essential", { maxAge: 120960000 });
+    setCookie("consentChoiceCMSC", "essential", { maxAge: 120960000 });
     handleClose();
   }
 
@@ -126,15 +132,19 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
     if (cookiePref) val.push("pref");
     if (cookieAnalytics) val.push("analytics");
     if (cookieAds) val.push("ads");
-    const data = val.length ? (val.length > 2 ? "acceptAll" : val.join(".")) : "essential";
+    const data = val.length
+      ? val.length > 2
+        ? "acceptAll"
+        : val.join(".")
+      : "essential";
 
-    setCookie("consentChoice", data, { maxAge: 120960000 });
+    setCookie("consentChoiceCMSC", data, { maxAge: 120960000 });
 
     handleClose();
   }
 
   useEffect(() => {
-    if (hasCookie("consentChoice")) {
+    if (hasCookie("consentChoiceCMSC")) {
       setShowBanner(false);
     } else {
       setShowBanner(true);
@@ -143,7 +153,7 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
 
   useEffect(() => {
     let val = [""];
-    const cookieData = getCookie("consentChoice");
+    const cookieData = getCookie("consentChoiceCMSC");
 
     if (typeof cookieData == "string") val = cookieData.split(".");
 
@@ -158,12 +168,32 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
   }, []);
 
   return (
-    <div className={showPreferences || showPrivacy ? `${styles.container} ${styles.containerOpened}` : styles.container} style={{ zIndex: "98" }}>
-      <div className={styles.prefButton} aria-describedby={"Preferinţe şi politica de confidenţialitate"} onClick={() => openPrefs()} id="prefsHover">
+    <div
+      className={
+        showPreferences || showPrivacy
+          ? `${styles.container} ${styles.containerOpened}`
+          : styles.container
+      }
+      style={{ zIndex: "98" }}
+    >
+      <div
+        className={styles.prefButton}
+        aria-describedby={"Preferinţe şi politica de confidenţialitate"}
+        onClick={() => openPrefs()}
+        id="prefsHover"
+      >
         🍪
-        <div className={`absolute bg-[#fff] text-dark rounded-md drop-shadow-xl p-3 bottom-[2rem] right-[20%]  text-lg`}>{staticData.banner.btnPrefs}</div>
+        <div
+          className={`absolute bg-[#fff] text-dark rounded-md drop-shadow-xl p-3 bottom-[2rem] right-[20%]  text-lg`}
+        >
+          {staticData.banner.btnPrefs}
+        </div>
       </div>
-      {showPreferences || showPrivacy ? <div className={styles.close} onClick={() => handleClose()} /> : <></>}
+      {showPreferences || showPrivacy ? (
+        <div className={styles.close} onClick={() => handleClose()} />
+      ) : (
+        <></>
+      )}
       {showBanner ? (
         <div className={styles.bannerContainer}>
           <p className="text-2xl">🍪{staticData.banner.title}</p>
@@ -171,16 +201,34 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
           <div className="mb-5 flex flex-col">
             <span>
               {staticData.preferences.seeMore}{" "}
-              <div className="cursor-pointer hover:text-pink transition-colors" onClick={() => openPrivacy()}>
+              <div
+                className="cursor-pointer hover:text-pink transition-colors"
+                onClick={() => openPrivacy()}
+              >
                 {staticData.banner.btnPrivacy}
               </div>
             </span>
           </div>
           <div className={styles.buttonContainer}>
-            <Button text={staticData.banner.btnPrefs} type="dark" icon={<AiOutlineSetting />} onClick={() => openPrefs()} />
+            <Button
+              text={staticData.banner.btnPrefs}
+              type="dark"
+              icon={<AiOutlineSetting />}
+              onClick={() => openPrefs()}
+            />
             <div className={styles.buttonContainer2}>
-              <Button text={staticData.banner.btnRefuse} type="dark" icon={<RxCrossCircled />} onClick={() => handleRefuseAll()} />
-              <Button text={staticData.banner.btnAccetp} type="color" icon={<AiOutlineCheckCircle />} onClick={() => handleAcceptAll()} />
+              <Button
+                text={staticData.banner.btnRefuse}
+                type="dark"
+                icon={<RxCrossCircled />}
+                onClick={() => handleRefuseAll()}
+              />
+              <Button
+                text={staticData.banner.btnAccetp}
+                type="color"
+                icon={<AiOutlineCheckCircle />}
+                onClick={() => handleAcceptAll()}
+              />
             </div>
           </div>
         </div>
@@ -195,7 +243,10 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
           <div className="mb-5 flex flex-col">
             <span>
               {staticData.preferences.seeMore}{" "}
-              <div className={styles.secondaryButton} onClick={() => openPrivacy()}>
+              <div
+                className={styles.secondaryButton}
+                onClick={() => openPrivacy()}
+              >
                 {staticData.banner.btnPrivacy}
               </div>
             </span>
@@ -209,17 +260,29 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
             </label>
             <p>{staticData.preferences.essentialDesc}</p>
             <label>
-              <input type="checkbox" checked={cookiePref} onChange={() => setCookiePref(!cookiePref)} />
+              <input
+                type="checkbox"
+                checked={cookiePref}
+                onChange={() => setCookiePref(!cookiePref)}
+              />
               <p>{staticData.preferences.prefsTitle}</p>
             </label>
             <p>{staticData.preferences.prefDesc}</p>
             <label>
-              <input type="checkbox" checked={cookieAnalytics} onChange={() => setCookieAnalytics(!cookieAnalytics)} />
+              <input
+                type="checkbox"
+                checked={cookieAnalytics}
+                onChange={() => setCookieAnalytics(!cookieAnalytics)}
+              />
               <p>{staticData.preferences.analyticsTitle}</p>
             </label>
             <p>{staticData.preferences.analyticsDesc}</p>
             <label>
-              <input type="checkbox" checked={cookieAds} onChange={() => setCookieAds(!cookieAds)} />
+              <input
+                type="checkbox"
+                checked={cookieAds}
+                onChange={() => setCookieAds(!cookieAds)}
+              />
               <p>{staticData.preferences.adsTitle}</p>
             </label>
             <p>{staticData.preferences.adsDesc}</p>
@@ -227,10 +290,24 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
           <HorizontalLine />
           <div className={styles.buttonContainer}>
             <div className={styles.buttonContainer2}>
-              <Button text={staticData.banner.btnRefuse} icon={<RxCrossCircled />} onClick={() => handleRefuseAll()} />
-              <Button text={staticData.banner.btnAccetp} type="dark" icon={<AiOutlineCheckCircle />} onClick={() => handleAcceptAll()} />
+              <Button
+                text={staticData.banner.btnRefuse}
+                icon={<RxCrossCircled />}
+                onClick={() => handleRefuseAll()}
+              />
+              <Button
+                text={staticData.banner.btnAccetp}
+                type="dark"
+                icon={<AiOutlineCheckCircle />}
+                onClick={() => handleAcceptAll()}
+              />
             </div>
-            <Button text={staticData.preferences.save} type="color" icon={<AiOutlineSave />} onClick={() => handleSave()} />
+            <Button
+              text={staticData.preferences.save}
+              type="color"
+              icon={<AiOutlineSave />}
+              onClick={() => handleSave()}
+            />
           </div>
         </div>
       ) : (
@@ -253,7 +330,11 @@ export default function Gdpr({ showPrivacy, setShowPrivacy }: any) {
               </li>
             ))}
           </ul>
-          <Button text={staticData.banner.btnPrefs} type="color" onClick={() => openPrefs()} />
+          <Button
+            text={staticData.banner.btnPrefs}
+            type="color"
+            onClick={() => openPrefs()}
+          />
         </div>
       ) : (
         <></>
