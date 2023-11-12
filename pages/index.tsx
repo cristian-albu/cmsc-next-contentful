@@ -79,6 +79,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { teamData, partnerData, eventsData, resourcesData, projectsData },
-    revalidate: 1000 * 60 * 60 * 4,
+    revalidate: 60 * 30,
   };
 };
