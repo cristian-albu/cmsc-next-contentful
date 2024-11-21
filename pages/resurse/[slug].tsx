@@ -129,6 +129,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { resourceData, otherResources },
-    revalidate: 1000 * 60 * 60 * 4,
+    revalidate: 1000 * 60 * 60,
   };
 };
